@@ -15,13 +15,13 @@ This C# Library allows users to get information on the desidered airport by usin
 
 ---- AVAILABLE METHODS TO CALL ----
 ```cs
-public async static Task<Airport> GetStationInfo(string Station, string API_TOKEN)
-public async static Task<string> GetMetar(string Station, string API_TOKEN)
-public async static Task<string> GetTaf(string Station, string API_TOKEN)
-public async static Task<string> GetCurrentAiracCycle()
-public async static Task<string> GetCurrentAiracExpiryDate()
-public async static Task<List<Airport>> GetNearestStationFromStation(string Station, int numberOfStations, bool onlyAirports, string API_TOKEN)
-public async static Task<List<Airport>> GetNearestStationFromPosition(double latitude, double longitude, int numberOfStations, bool onlyAirports, string API_TOKEN)
+public async static Task<Airport> GetStationInfo(string Station, string API_TOKEN) {}
+public async static Task<string> GetMetar(string Station, string API_TOKEN) {}
+public async static Task<string> GetTaf(string Station, string API_TOKEN) {}
+public async static Task<string> GetCurrentAiracCycle() {}
+public async static Task<string> GetCurrentAiracExpiryDate() {}
+public async static Task<List<Airport>> GetNearestStationFromStation(string Station, int numberOfStations, bool onlyAirports, string API_TOKEN) {}
+public async static Task<List<Airport>> GetNearestStationFromPosition(double latitude, double longitude, int numberOfStations, bool onlyAirports, string API_TOKEN) {}
 ```
 
 To avoid thread blocking I recommend to use async methods.
