@@ -23,7 +23,7 @@ namespace ConsoleApp1
         static async void GetInformation(string ICAO_STATION)
         {
             //Getting airport information
-            AVWXLib.Airport airport = await AVWXLib.GetStationInfo(ICAO_STATION, TOKEN);
+            AVWXLib.Airport airport = await AVWXLib.GetStationInfoAsync(ICAO_STATION, TOKEN);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(">> AIRPORT RESULT");
             Console.ForegroundColor = ConsoleColor.White;
@@ -52,22 +52,22 @@ namespace ConsoleApp1
             }
 
             //Getting METAR information
-            string METAR = await AVWXLib.GetMetar(ICAO_STATION, TOKEN);
+            string METAR = await AVWXLib.GetMetarAsync(ICAO_STATION, TOKEN);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(">> METAR RESULT");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(METAR);
 
             //Getting TAF information
-            string TAF = await AVWXLib.GetTaf(ICAO_STATION, TOKEN);
+            string TAF = await AVWXLib.GetTafAsync(ICAO_STATION, TOKEN);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(">> TAF RESULT");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(TAF);
 
             //Getting AIRAC
-            string AIRAC = await AVWXLib.GetCurrentAiracCycle();
-            string AIRAC_exp_date = await AVWXLib.GetCurrentAiracExpiryDate();
+            string AIRAC = await AVWXLib.GetCurrentAiracCycleAsync();
+            string AIRAC_exp_date = await AVWXLib.GetCurrentAiracExpiryDateAsync();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(">> AIRAC RESULT");
             Console.ForegroundColor = ConsoleColor.White;

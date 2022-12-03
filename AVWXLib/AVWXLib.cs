@@ -9,7 +9,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing raw JSON</returns>
-    public async static Task<string> GetStationInfoJson(string Station, string API_TOKEN)
+    public async static Task<string> GetStationInfoJsonAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/station/" + Station.ToUpper() + "?format=json&token=" + API_TOKEN;
         return await Http_GetRequest(url);
@@ -20,7 +20,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing raw XML</returns>
-    public async static Task<string> GetStationInfoXml(string Station, string API_TOKEN)
+    public async static Task<string> GetStationInfoXmlAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/station/" + Station.ToUpper() + "?format=xml&token=" + API_TOKEN;
         return await Http_GetRequest(url);
@@ -31,7 +31,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>Airport object containing station informations</returns>
-    public async static Task<Airport> GetStationInfo(string Station, string API_TOKEN)
+    public async static Task<Airport> GetStationInfoAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/station/" + Station.ToUpper() + "?format=json&token=" + API_TOKEN;
         string response = await Http_GetRequest(url);
@@ -44,7 +44,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing raw JSON</returns>
-    public async static Task<string> GetMetarJson(string Station, string API_TOKEN)
+    public async static Task<string> GetMetarJsonAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/metar/" + Station.ToUpper() + "?options=&airport=true&reporting=true&format=json&onfail=error&token=" + API_TOKEN;
         return await Http_GetRequest(url);
@@ -55,7 +55,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing raw XML</returns>
-    public async static Task<string> GetMetarXml(string Station, string API_TOKEN)
+    public async static Task<string> GetMetarXmlAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/metar/" + Station.ToUpper() + "?options=&airport=true&reporting=true&format=xml&onfail=error&token=" + API_TOKEN;
         return await Http_GetRequest(url);
@@ -66,7 +66,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing only METAR</returns>
-    public async static Task<string> GetMetar(string Station, string API_TOKEN)
+    public async static Task<string> GetMetarAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/metar/" + Station.ToUpper() + "?options=&airport=true&reporting=true&format=json&onfail=error&token=" + API_TOKEN;
         string response = await Http_GetRequest(url);
@@ -79,7 +79,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing raw JSON</returns>
-    public async static Task<string> GetTafJson(string Station, string API_TOKEN)
+    public async static Task<string> GetTafJsonAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/taf/" + Station.ToUpper() + "?options=summary&airport=true&reporting=true&format=json&onfail=error&token=" + API_TOKEN;
         return await Http_GetRequest(url);
@@ -90,7 +90,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing raw XML</returns>
-    public async static Task<string> GetTafXml(string Station, string API_TOKEN)
+    public async static Task<string> GetTafXmlAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/taf/" + Station.ToUpper() + "?options=summary&airport=true&reporting=true&format=xml&onfail=error&token=" + API_TOKEN;
         return await Http_GetRequest(url);
@@ -101,7 +101,7 @@ public static class AVWXLib
     /// <param name="Station">Desired aeronautical station</param>
     /// <param name="API_TOKEN">AVWX personal Token</param>
     /// <returns>String containing only TAF</returns>
-    public async static Task<string> GetTaf(string Station, string API_TOKEN)
+    public async static Task<string> GetTafAsync(string Station, string API_TOKEN)
     {
         string url = "http://avwx.rest/api/taf/" + Station.ToUpper() + "?options=&airport=true&reporting=true&format=json&onfail=error&token=" + API_TOKEN;
         string response = await Http_GetRequest(url);
@@ -112,7 +112,7 @@ public static class AVWXLib
     /// Obtain the current AIRAC Cycle number
     /// </summary>
     /// <returns>String that contains AIRAC Cycle number</returns>
-    public async static Task<string> GetCurrentAiracCycle()
+    public async static Task<string> GetCurrentAiracCycleAsync()
     {
         string url = "http://eliafrate.altervista.org/ms/airac/cycle.php";
         string response = await Http_GetRequest(url);
@@ -123,7 +123,7 @@ public static class AVWXLib
     /// Obtain the current AIRAC Cycle expiry date
     /// </summary>
     /// <returns>String that contains AIRAC Cycle expiry date</returns>
-    public async static Task<string> GetCurrentAiracExpiryDate()
+    public async static Task<string> GetCurrentAiracExpiryDateAsync()
     {
         string url = "http://eliafrate.altervista.org/ms/airac/cycle.php";
         string response = await Http_GetRequest(url);
@@ -139,7 +139,7 @@ public static class AVWXLib
     /// <param name="onlyAirports">If true it will show up only airports</param>
     /// <param name="API_TOKEN">AVWX personal token</param>
     /// <returns>Returns a List of Airport object containing the desidered nearby airports</returns>
-    public async static Task<List<Airport>> GetNearestStationFromStation(string Station, int numberOfStations, bool onlyAirports, string API_TOKEN)
+    public async static Task<List<Airport>> GetNearestStationFromStationAsync(string Station, int numberOfStations, bool onlyAirports, string API_TOKEN)
     {
         List<Airport> nearestStations = new List<Airport>();
         //Getting current Station coordinates
@@ -162,7 +162,7 @@ public static class AVWXLib
     /// <param name="onlyAirports">If true it will show up only airports</param>
     /// <param name="API_TOKEN">AVWX personal token</param>
     /// <returns>Returns a List of Airport object containing the desidered nearby airports</returns>
-    public async static Task<List<Airport>> GetNearestStationFromPosition(double latitude, double longitude, int numberOfStations, bool onlyAirports, string API_TOKEN)
+    public async static Task<List<Airport>> GetNearestStationFromPositionAsync(double latitude, double longitude, int numberOfStations, bool onlyAirports, string API_TOKEN)
     {
         List<Airport> nearestStations = new List<Airport>();
         string url = "https://avwx.rest/api/station/near/" + latitude + "," + longitude + "?n=" + numberOfStations + "&airport=" + onlyAirports.ToString() + "&reporting=true&format=json&token=" + API_TOKEN;
@@ -170,6 +170,99 @@ public static class AVWXLib
         nearestStations.Add(Newtonsoft.Json.JsonConvert.DeserializeObject<Airport>(response));
         return nearestStations;
     }
+
+    /// <summary>
+    /// Obtain information on desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing raw JSON</returns>
+    public static string GetStationInfoJson(string Station, string API_TOKEN) { return GetStationInfoJsonAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain information on desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing raw XML</returns>
+    public static string GetStationInfoXml(string Station, string API_TOKEN) { return GetStationInfoXmlAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain information on desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>Airport object containing station informations</returns>
+    public static Airport GetStationInfo(string Station, string API_TOKEN) { return GetStationInfoAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain METAR of desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing raw JSON</returns>
+    public static string GetMetarJson(string Station, string API_TOKEN) { return GetMetarJsonAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain METAR of desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing raw XML</returns>
+    public static string GetMetarXml(string Station, string API_TOKEN) { return GetMetarXmlAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain METAR of desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing only METAR</returns>
+    public static string GetMetar(string Station, string API_TOKEN) { return GetMetarAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain TAF of desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing raw JSON</returns>
+    public static string GetTafJson(string Station, string API_TOKEN) { return GetTafJsonAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain TAF of desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing raw XML</returns>
+    public static string GetTafXml(string Station, string API_TOKEN) { return GetTafXmlAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain TAF of desidered station
+    /// </summary>
+    /// <param name="Station">Desired aeronautical station</param>
+    /// <param name="API_TOKEN">AVWX personal Token</param>
+    /// <returns>String containing only TAF</returns>
+    public static string GetTaf(string Station, string API_TOKEN) { return GetTafAsync(Station, API_TOKEN).Result; }
+    /// <summary>
+    /// Obtain the current AIRAC Cycle number
+    /// </summary>
+    /// <returns>String that contains AIRAC Cycle number</returns>
+    public static string GetCurrentAiracCycle() { return GetCurrentAiracCycleAsync().Result; }
+    /// <summary>
+    /// Obtain the current AIRAC Cycle expiry date
+    /// </summary>
+    /// <returns>String that contains AIRAC Cycle expiry date</returns>
+    public static string GetCurrentAiracExpiryDate() { return GetCurrentAiracExpiryDateAsync().Result; }
+    /// <summary>
+    /// Get nearest station around a desidered ICAO station
+    /// </summary>
+    /// <param name="Station">Desidered ICAO station as Bullseye</param>
+    /// <param name="numberOfStations">Number of nearest stations to find</param>
+    /// <param name="onlyAirports">If true it will show up only airports</param>
+    /// <param name="API_TOKEN">AVWX personal token</param>
+    /// <returns>Returns a List of Airport object containing the desidered nearby airports</returns>
+    public static List<Airport> GetNearestStationFromStation(string Station, int numberOfStations, bool onlyAirports, string API_TOKEN) { return GetNearestStationFromStationAsync(Station, numberOfStations, onlyAirports, API_TOKEN).Result; }
+    /// <summary>
+    /// Get nearest station given latitude and longitude
+    /// </summary>
+    /// <param name="latitude">Current latitude</param>
+    /// <param name="longitude">Current longitude</param>
+    /// <param name="numberOfStations">Number of nearest stations to find</param>
+    /// <param name="onlyAirports">If true it will show up only airports</param>
+    /// <param name="API_TOKEN">AVWX personal token</param>
+    /// <returns>Returns a List of Airport object containing the desidered nearby airports</returns>
+    public static List<Airport> GetNearestStationFromPosition(double latitude, double longitude, int numberOfStations, bool onlyAirports, string API_TOKEN) { return GetNearestStationFromPositionAsync(latitude, longitude, numberOfStations, onlyAirports, API_TOKEN ).Result; }
 
 
     /// <summary>
